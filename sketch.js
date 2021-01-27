@@ -2,6 +2,7 @@ const Engine = Matter.Engine;
 const World = Matter.World;
 const Bodies = Matter.Bodies;
 const Body = Matter.Body;
+const Render = Matter.Render;
 
 var ground1, ground2;
 var stick1, stick2, stick3, stick4, stick5, stick6;
@@ -24,10 +25,22 @@ function setup(){
 	ground5 = new Ground(5, 230, 15, 1500);
 	
 	dustbin1 = new Dustbin(1000, 255, 150, 200);
-	dustbin2 = new Dustbin(1000, 630, 150, 200);
+//	dustbin2 = new Dustbin(1000, 630, 150, 200);
 
 	ball1 = new Paperball(400, 290, 90);
-	ball2 = new Paperball(400, 670, 90);
+//	ball2 = new Paperball(400, 670, 90);
+
+var render = Render.create({
+	element: document.body,
+	engine: engine,
+	options: {
+	  width: 1600,
+	  height: 700,
+	  wireframes: false
+	}
+  });
+
+  Render.run(render);
 }
 
 function draw(){
@@ -48,11 +61,11 @@ function draw(){
 
 	//to display the dustbins
 	dustbin1.display();
-	dustbin2.display();
+//	dustbin2.display();
 
 	//to display the paperballs
 	ball1.display();
-	ball2.display();
+//	ball2.display();
 }
 
 function keyPressed(){
@@ -60,26 +73,26 @@ function keyPressed(){
 	//up arrow 
 	if(keyCode===38){
 	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:150, y:-105})
-	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:150, y:-75})
+	//Matter.Body.applyForce(ball2.body, ball2.body.position, {x:150, y:-75})
 	}
 
 	//left arrow 
-	if(keyCode===37){
-	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:-105, y:-65})
-	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:-75, y:-65})
-	}
+	//if(keyCode===37){
+//	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:-105, y:-65})
+	//Matter.Body.applyForce(ball2.body, ball2.body.position, {x:-75, y:-65})
+//	}
 
 	//right arrow
-	if(keyCode===39){
-	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:105, y:-65})
-	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:75, y:-65})
-	}
+//	if(keyCode===39){
+//	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:105, y:-65})
+//	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:75, y:-65})
+//	}
 
 	//down arrow
-	if(keyCode===40){
-	Matter.Body.applyForce(ball1.body, ball1.body.position, {x:105, y:105})
-	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:75, y:105})
-	}
+	//if(keyCode===40){
+	//Matter.Body.applyForce(ball1.body, ball1.body.position, {x:105, y:105})
+//	Matter.Body.applyForce(ball2.body, ball2.body.position, {x:75, y:105})
+	//}
 }
 
 

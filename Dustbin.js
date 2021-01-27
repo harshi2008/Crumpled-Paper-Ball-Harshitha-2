@@ -1,7 +1,7 @@
 class Dustbin{
     constructor(x, y, width, height){
         var options={
-            isStatic:true,
+            //isStatic:true,
             'density': 1.0,
         }
 
@@ -16,13 +16,12 @@ class Dustbin{
     }
 
     display(){
-        var pos = this.body.position;
-       
+       var angle = this.body.angle;
         push();
-        imageMode(CENTER);
+        rotate(angle);
         strokeWeight(3);
         stroke("yellow");
-       //fill("green");
+       imageMode(CENTER);
         image(this.image, this.x, this.y, this.width, this.height);
         pop();
     }
